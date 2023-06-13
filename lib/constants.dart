@@ -9,4 +9,4 @@ TextStyle mainStyle({fontSize,fontWeight,color}){
   );
 }
 
-const backGroundColor = Color(0xFFD5D6F1);
+const backGroundColor = Color(0xFF0E0E0F);
