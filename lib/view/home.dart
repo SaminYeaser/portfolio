@@ -3,188 +3,167 @@ import 'dart:math';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants.dart';
+import 'package:portfolio/view/footer.dart';
+import 'package:portfolio/view/widget/home_banner.dart';
+import 'package:portfolio/view/skill_percentage.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-class Home extends StatelessWidget {
+import 'about.dart';
+import 'experience.dart';
 
+class Home extends StatefulWidget {
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   ScrollController? _scrollController;
+
+  void scrollListener() async {
+    print('scroll controller${_scrollController!.position.extentBefore}');
+  }
+
+  @override
+  void initState() {
+    _scrollController = ScrollController()..addListener(scrollListener);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: backGroundColor,
-      // appBar: AppBar(
-      //   backgroundColor: Colors.transparent,
-      //   elevation: 0,
-      //   actions: [
-      //     Padding(
-      //       padding: const EdgeInsets.only(top: 20.0),
-      //       child: Container(
-      //         child: Row(
-      //           mainAxisAlignment: MainAxisAlignment.end,
-      //           children: [
-      //             Text('Home',style: mainStyle(
-      //                 color: Colors.white,
-      //                 fontSize: 24
-      //             ),),
-      //             const SizedBox(width: 20,),
-      //             Text('Contact',style: mainStyle(
-      //                 color: Colors.white,
-      //                 fontSize: 24
-      //             ),),
-      //             const SizedBox(width: 20,),
-      //             Text('Projects',style: mainStyle(
-      //                 color: Colors.white,
-      //                 fontSize: 24
-      //             ),),
-      //             const SizedBox(width: 20,),
-      //             Text('Resume',style: mainStyle(
-      //                 color: Colors.white,
-      //                 fontSize: 24
-      //             ),),
-      //             const SizedBox(width: 20,),
-      //           ],
-      //         ),
-      //       ),
-      //     ),
-      //   ],
-      // ),
+      backgroundColor: mainColor,
       body: Stack(
         children: [
           ScrollTransformView(
             children: [
               ScrollTransformItem(
-                builder: (context){
-                  final offScreenPercentage = min(context / screenSize.height,1.0);
+                builder: (context) {
+                  final offScreenPercentage =
+                      min(context / screenSize.height, 1.0);
                   return Container(
-                    height: screenSize.height - (screenSize.height * .2 * offScreenPercentage),
-                    width: screenSize.width - (screenSize.width * .5 * offScreenPercentage),
-
-                    child: Image.asset('asset/images/banner.jpg',fit: BoxFit.cover,),
+                    height: screenSize.height -
+                        (screenSize.height * .2 * offScreenPercentage),
+                    width: screenSize.width -
+                        (screenSize.width * .5 * offScreenPercentage),
+                    child: Image.asset(
+                      'asset/images/banner.jpg',
+                      fit: BoxFit.cover,
+                    ),
                   );
                 },
-                offsetBuilder:(scrollOffset){
-                  final offScreenPercentage = min(scrollOffset / screenSize.height,1.0);
-                  final heightShrinkageAmount = screenSize.height * .2 * offScreenPercentage;
-                  final bool startMovingImage = scrollOffset >=screenSize.height;
-                  final double onScreenOffset = scrollOffset + heightShrinkageAmount / 2;
-                  return Offset(0, !startMovingImage?
-                      onScreenOffset :
-                      onScreenOffset -(scrollOffset - screenSize.height * .8));
+                offsetBuilder: (scrollOffset) {
+                  final offScreenPercentage =
+                      min(scrollOffset / screenSize.height, 1.0);
+                  final heightShrinkageAmount =
+                      screenSize.height * .2 * offScreenPercentage;
+                  final bool startMovingImage =
+                      scrollOffset >= screenSize.height;
+                  final double onScreenOffset =
+                      scrollOffset + heightShrinkageAmount / 2;
+                  return Offset(
+                      0,
+                      !startMovingImage
+                          ? onScreenOffset
+                          : onScreenOffset -
+                              (scrollOffset - screenSize.height * .8));
                 },
                 logOffset: true,
               ),
               ScrollTransformItem(
-                builder: (context){
-                  return Column(
-                    children: [
-                      Container(
-                        child: Text('Hello, I am Samin Yeaser',style: mainStyle(
-                            fontSize: 100, color: Colors.white
-                        ),),
-                      ),
-                      AnimatedTextKit(
-                        animatedTexts: [
-                          TypewriterAnimatedText(
-                            'Flutter Developer',
-                            textStyle: mainStyle(
-                              fontSize: 32.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white
-                            ),
-                            speed: const Duration(milliseconds: 100),
-                          ),
-                          TypewriterAnimatedText(
-                            'Built App for Android',
-                            textStyle: mainStyle(
-                                fontSize: 32.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white
-                            ),
-                            speed: const Duration(milliseconds: 100),
-                          ),
-                          TypewriterAnimatedText(
-                            'Built App for IOS',
-                            textStyle: mainStyle(
-                                fontSize: 32.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white
-                            ),
-                            speed: const Duration(milliseconds: 100),
-                          ),
-                          TypewriterAnimatedText(
-                            'Built Web Applications',
-                            textStyle: mainStyle(
-                                fontSize: 32.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white
-                            ),
-                            speed: const Duration(milliseconds: 100),
-                          ),
-                        ],
-
-                        totalRepeatCount: 4,
-                        pause: const Duration(milliseconds: 1000),
-                        displayFullTextOnTap: true,
-                        stopPauseOnTap: true,
-                      )
-                    ],
-                  );
+                builder: (context) {
+                  return HomeBanner();
                 },
-                offsetBuilder: (scrollOffset){
+                offsetBuilder: (scrollOffset) {
                   return Offset(0, -(screenSize.height - 300));
                 },
-
               ),
               ScrollTransformItem(
-                builder: (context){
-                  return Stack(
-                    children: [
-                      Container(
-                        height: 1500,
-                        width: screenSize.width,
-                        color: Colors.blue,
-                        child: Image.asset('asset/images/samin_2.jpg',fit: BoxFit.fill,),
-                      ),
+                builder: (context) {
+                  print(context);
+                  return AboutMe(cntx: context,);
+                },
+              ),
+              ScrollTransformItem(
+                builder: (context) {
+                  print(context);
+                  return Experience(cntx: context);
+                },
+              ),
+              ScrollTransformItem(
+                builder: (context) {
+                  print(context);
+                  return SkillPercentage(cntx: context,);
+                },
+              ),
 
-                    ],
-                  );
+              ScrollTransformItem(
+                builder: (context) {
+                  print(context);
+                  return Footer();
                 },
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 20.0),
-            child: Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text('Home',style: mainStyle(
-                      color: Colors.white,
-                      fontSize: 24
-                  ),),
-                  const SizedBox(width: 20,),
-                  Text('Contact',style: mainStyle(
-                      color: Colors.white,
-                      fontSize: 24
-                  ),),
-                  const SizedBox(width: 20,),
-                  Text('Projects',style: mainStyle(
-                      color: Colors.white,
-                      fontSize: 24
-                  ),),
-                  const SizedBox(width: 20,),
-                  Text('Resume',style: mainStyle(
-                      color: Colors.white,
-                      fontSize: 24
-                  ),),
-                  const SizedBox(width: 20,),
-                ],
-              ),
-            ),
-          ),
+          // SingleChildScrollView(
+          //   controller: _scrollController,
+          //   child: ScrollTransformView(children: [
+          //     ScrollTransformItem(
+          //         builder: (context){
+          //       print('home $context');
+          //       return ;
+          //     }),
+          //     ScrollTransformItem(
+          //         builder: (context){
+          //
+          //           return AnimatedOpacity(
+          //             duration: Duration(milliseconds: 1000),
+          //             opacity: 1,
+          //             child: Padding(
+          //               padding: const EdgeInsets.only(top: 20.0),
+          //               child: Text(
+          //                 'Home',
+          //                 style: mainStyle(color: Colors.white, fontSize: 24),
+          //               ),
+          //             ),
+          //           );
+          //         }),
+          //     ScrollTransformItem(
+          //         builder: (context){
+          //
+          //           return AnimatedOpacity(
+          //             duration: Duration(milliseconds: 1000),
+          //             opacity: 1,
+          //             child: Padding(
+          //               padding: const EdgeInsets.only(top: 20.0),
+          //               child: Text(
+          //                 'Home',
+          //                 style: mainStyle(color: Colors.white, fontSize: 24),
+          //               ),
+          //             ),
+          //           );
+          //         }),
+          //     ScrollTransformItem(
+          //         builder: (context){
+          //
+          //           return AnimatedOpacity(
+          //             duration: Duration(milliseconds: 1000),
+          //             opacity: 1,
+          //             child: Padding(
+          //               padding: const EdgeInsets.only(top: 20.0),
+          //               child: Text(
+          //                 'Home',
+          //                 style: mainStyle(color: Colors.white, fontSize: 24),
+          //               ),
+          //             ),
+          //           );
+          //         })
+          //   ]),
+          // )
+
         ],
       ),
     );
