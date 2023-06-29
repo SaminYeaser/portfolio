@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../constants.dart';
 
@@ -68,56 +71,59 @@ class AboutMe extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      right: 10,
-                      top: 10,
+                      right: 20,
+                      top: 150,
                       child: Column(
                         children: [
-                          AnimatedOpacity(
-                            duration: Duration(milliseconds: 3000),
-                            curve: Curves.bounceOut,
-                            opacity: cntx! <= 500 ? 0.0 : 1,
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 20.0),
-                              child: Text(
-                                'Home',
-                                style: mainStyle(color: Colors.white, fontSize: 24),
-                              ),
-                            ),
-                          ),
                           AnimatedOpacity(
                             duration: Duration(milliseconds: 5000),
                             curve: Curves.bounceOut,
                             opacity: cntx! <= 500 ? 0.0 : 1,
                             child: Padding(
                               padding: const EdgeInsets.only(top: 20.0),
-                              child: Text(
-                                'Home',
-                                style: mainStyle(color: Colors.white, fontSize: 24),
-                              ),
+                              child: InkWell(
+                                onTap: (){
+                                  final url = Uri.parse('https://www.facebook.com/iamsaminyeaser');
+                                  launchUrl(
+                                    url,
+                                    mode: LaunchMode.externalApplication,
+                                  );
+                                },
+                                  child: Image.asset('asset/images/facebook.png',height: 30,)),
                             ),
                           ),
                           AnimatedOpacity(
-                            duration: Duration(milliseconds: 7000),
+                            duration: Duration(milliseconds: 10000),
                             curve: Curves.bounceOut,
                             opacity: cntx! <= 500 ? 0.0 : 1,
                             child: Padding(
                               padding: const EdgeInsets.only(top: 20.0),
-                              child: Text(
-                                'Home',
-                                style: mainStyle(color: Colors.white, fontSize: 24),
-                              ),
+                              child: InkWell(
+                                  onTap: (){
+                                    final url = Uri.parse('https://www.linkedin.com/in/samin-yeaser/');
+                                    launchUrl(
+                                      url,
+                                      mode: LaunchMode.externalApplication,
+                                    );
+                                  },
+                                  child: Image.asset('asset/images/github.png',height: 30,)),
                             ),
                           ),
                           AnimatedOpacity(
-                            duration: Duration(milliseconds: 9000),
+                            duration: Duration(milliseconds: 15000),
                             curve: Curves.bounceOut,
                             opacity: cntx! <= 500 ? 0.0 : 1,
                             child: Padding(
                               padding: const EdgeInsets.only(top: 20.0),
-                              child: Text(
-                                'Home',
-                                style: mainStyle(color: Colors.white, fontSize: 24),
-                              ),
+                              child: InkWell(
+                                  onTap: (){
+                                    final url = Uri.parse('https://github.com/SaminYeaser');
+                                    launchUrl(
+                                      url,
+                                      mode: LaunchMode.externalApplication,
+                                    );
+                                  },
+                                  child: Image.asset('asset/images/linkedIn.png',height: 30,)),
                             ),
                           ),
                         ],

@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants.dart';
 import 'package:portfolio/view/footer.dart';
+import 'package:portfolio/view/projects/projects.dart';
 import 'package:portfolio/view/widget/home_banner.dart';
 import 'package:portfolio/view/skill_percentage.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -99,7 +100,12 @@ class _HomeState extends State<Home> {
                   return SkillPercentage(cntx: context,);
                 },
               ),
-
+              ScrollTransformItem(
+                builder: (context) {
+                  print(context);
+                  return Projects(cntx: context);
+                },
+              ),
               ScrollTransformItem(
                 builder: (context) {
                   print(context);
