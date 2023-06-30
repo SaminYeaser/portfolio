@@ -1,6 +1,7 @@
 import 'package:any_link_preview/any_link_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:portfolio/view/projects/widgets/projects_item.dart';
 
 import '../../constants.dart';
 
@@ -53,101 +54,35 @@ class _ProjectsState extends State<Projects> {
                       childAspectRatio: 1 /.5
                   ),
                     children: [
-                      InkWell(
-                        onTap: (){
-                          showModalBottomSheet<void>(
-                            context: context,
-                            constraints: BoxConstraints(
-                              maxWidth: MediaQuery.of(context).size.width,
-                            ),
-                            builder: (BuildContext context) {
-                              return Container(
-                                height: 300,
-
-                                color: Colors.amber,
-                                child: Center(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: <Widget>[
-                                      const Text('Modal BottomSheet'),
-                                      ElevatedButton(
-                                        child: const Text('Close BottomSheet'),
-                                        onPressed: () => Navigator.pop(context),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              );
-                            },
-                          );
-                        },
-                        child: Container(
-                          width: 100,
-                          height: 100,
-                          decoration:  BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            image: const DecorationImage(
-                                image: AssetImage('asset/images/hishabee.JPG',),
-                                fit: BoxFit.fill
-                            ),
-                          ),
-                        ),
+                      ProjectItems(
+                        description: '',
+                        image: 'asset/images/hishabee.JPG',
+                        projectName: 'Hishabee Business Manager',
                       ),
-                      Container(
-                        width: 100,
-                        height: 100,
-                        decoration:  BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          image: const DecorationImage(
-                              image: AssetImage('asset/images/homme.JPG',),
-                              fit: BoxFit.fill
-                          ),
-                        ),
+                      ProjectItems(
+                        description: '',
+                        image: 'asset/images/homme.JPG',
+                        projectName: 'Hoome',
                       ),
-                      Container(
-                        // width: 100,
-                        // height: 100,
-                        decoration:  BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          image: const DecorationImage(
-                              image: AssetImage('asset/images/foodeva.JPG',),
-                              fit: BoxFit.fill
-                          ),
-                        ),
+                      ProjectItems(
+                        description: '',
+                        image: 'asset/images/foodeva.JPG',
+                        projectName: 'FoodEva',
                       ),
-                      Container(
-                        // width: 100,
-                        // height: 100,
-                        decoration:  BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          image: const DecorationImage(
-                              image: AssetImage('asset/images/salebee.JPG',),
-                              fit: BoxFit.fill
-                          ),
-                        ),
+                      ProjectItems(
+                        description: '',
+                        image: 'asset/images/salebee.JPG',
+                        projectName: 'SaleBee',
                       ),
-                      Container(
-                        // width: 100,
-                        // height: 100,
-                        decoration:  BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          image: const DecorationImage(
-                              image: AssetImage('asset/images/hishabee_app_builder.jpg',),
-                              fit: BoxFit.fill
-                          ),
-                        ),
+                      ProjectItems(
+                        description: '',
+                        image: 'asset/images/hishabee_app_builder.JPG',
+                        projectName: 'Hishabee App Builder',
                       ),
-                      Container(
-                        // width: 100,
-                        // height: 100,
-                        decoration:  BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          image: const DecorationImage(
-                              image: AssetImage('asset/images/ebhubon.jpg',),
-                              fit: BoxFit.fill
-                          ),
-                        ),
+                      ProjectItems(
+                        description: '',
+                        image: 'asset/images/ebhubon.JPG',
+                        projectName: 'Ebhubon',
                       ),
                     ],
                   ),
@@ -160,7 +95,32 @@ class _ProjectsState extends State<Projects> {
                         constraints: isExpanded! ? BoxConstraints() : BoxConstraints(maxHeight: 0),
                         child: Container(
                           height: 400,
-                          color: Colors.red,
+                          child: GridView(
+                            shrinkWrap: true,
+                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 3,
+                                crossAxisSpacing: 15,
+                                mainAxisSpacing: 20,
+                                childAspectRatio: 1 /.5
+                            ),
+                            children: [
+                              ProjectItems(
+                                description: '',
+                                image: 'asset/images/ecom_theme.JPG',
+                                projectName: 'Hishabee E-commerce App',
+                              ),
+                              ProjectItems(
+                                description: '',
+                                image: 'asset/images/hishabee_theme.jpg',
+                                projectName: 'Hishabee E-commerce App Themes',
+                              ),
+                              ProjectItems(
+                                description: '',
+                                image: 'asset/images/fearless.JPG',
+                                projectName: 'Fearless',
+                              ),
+                            ],
+                          ),
                         )
                     ),
                   ),

@@ -42,7 +42,7 @@ dependencies:
   percent_indicator: ^4.2.3
   url_launcher: ^6.1.11
   any_link_preview: ^3.0.1
-
+  widget_and_text_animator: ^1.0.9
 
 dev_dependencies:
   flutter_test:
