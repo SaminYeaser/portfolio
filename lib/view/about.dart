@@ -26,7 +26,7 @@ class AboutMe extends StatelessWidget {
                       image: DecorationImage(
                           image: AssetImage('asset/images/about_me.jpg',),
                           opacity: .5,
-                          fit: BoxFit.fill
+                          fit: BoxFit.cover
                       )
                   ),
 

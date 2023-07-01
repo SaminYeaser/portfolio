@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/constants.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
 class ProjectItems extends StatelessWidget {
 
   String? description;
+  String? myContribution;
   String? image;
   String? projectName;
-  ProjectItems({required this.description, required this.image, required this.projectName});
+  String? projectLink;
+  String? projectLinkName;
+  ProjectItems({required this.description, required this.image, required this.projectName,
+  required this.myContribution, this.projectLink, this.projectLinkName});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +27,7 @@ class ProjectItems extends StatelessWidget {
           ),
           builder: (BuildContext context) {
             return Container(
-              height: 300,
+              height: 350,
               decoration: const BoxDecoration(
                 color: mainColor,
                 borderRadius: BorderRadius.only(
@@ -45,7 +50,48 @@ class ProjectItems extends StatelessWidget {
                           color: Colors.white,fontSize: 32
                       ),),
                        ),
-
+                      SizedBox(height: 20,),
+                      WidgetAnimator(
+                        incomingEffect: WidgetTransitionEffects.incomingSlideInFromBottom(
+                            duration: Duration(milliseconds: 1500)
+                        ),
+                        child: Text(description!,
+                          textAlign: TextAlign.center,
+                          style: mainStyle(
+                            color: Colors.white,fontSize: 18
+                        ),),
+                      ),
+                      SizedBox(height: 20,),
+                      WidgetAnimator(
+                        incomingEffect: WidgetTransitionEffects.incomingSlideInFromBottom(
+                            duration: Duration(milliseconds: 2000)
+                        ),
+                        child: Text(myContribution!,
+                          textAlign: TextAlign.center,
+                          style: mainStyle(
+                              color: Colors.white,fontSize: 18
+                          ),),
+                      ),
+                      SizedBox(height: 20,),
+                      WidgetAnimator(
+                        incomingEffect: WidgetTransitionEffects.incomingSlideInFromBottom(
+                            duration: Duration(milliseconds: 2500)
+                        ),
+                        child: InkWell(
+                          onTap: (){
+                            final url = Uri.parse(projectLink!);
+                            launchUrl(
+                              url,
+                              mode: LaunchMode.externalApplication,
+                            );
+                          },
+                          child: Text(projectLinkName!,
+                            textAlign: TextAlign.center,
+                            style: mainStyle(
+                                color: Colors.blue,fontSize: 18
+                            ),),
+                        ),
+                      ),
                     ],
                   ),
                 ),

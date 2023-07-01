@@ -43,6 +43,8 @@ dependencies:
   url_launcher: ^6.1.11
   any_link_preview: ^3.0.1
   widget_and_text_animator: ^1.0.9
+  universal_html: ^2.2.3
+#  native_pdf_view: ^6.0.0+1
 
 dev_dependencies:
   flutter_test:
