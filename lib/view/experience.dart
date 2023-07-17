@@ -28,8 +28,8 @@ class Experience extends StatelessWidget {
                         ListTile(
                           leading: Image.asset(
                             'asset/images/bee.png',
-                            height: 30,
-                            width: 30,
+                            height: 50,
+                            width: 50,
                           ),
                           title: Text(
                             'Hishabee Technologies',
@@ -45,7 +45,7 @@ class Experience extends StatelessWidget {
                                     fontSize: 22, color: Colors.white),
                               ),
                               Text(
-                                '23rd September, 2021 - Present',
+                                '23rd September, 2021 - 31 July, 2021',
                                 style: mainStyle(
                                     fontSize: 20, color: Colors.white),
                               ),
@@ -63,8 +63,8 @@ class Experience extends StatelessWidget {
                         ListTile(
                           leading: Image.asset(
                             'asset/images/foodeva_logo.png',
-                            height: 30,
-                            width: 30,
+                            height: 50,
+                            width: 50,
                           ),
                           title: Text(
                             'FoodEva',
@@ -86,6 +86,51 @@ class Experience extends StatelessWidget {
                               ),
                               Text(
                                 'NewYork, USA',
+                                style: mainStyle(
+                                    fontSize: 16, color: Colors.grey),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        ListTile(
+                          leading: Image.asset(
+                            'asset/images/umr.png',
+                            height: 50,
+                            width: 50,
+                          ),
+                          title: Text(
+                            'UMR Labs',
+                            style: mainStyle(
+                                fontSize: 24, color: Colors.white),
+                          ),
+                          subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Senior Flutter Developer',
+                                style: mainStyle(
+                                    fontSize: 22, color: Colors.white),
+                              ),
+                              Text(
+                                '1st February, 2023 - 15th August, 2023',
+                                style: mainStyle(
+                                    fontSize: 20, color: Colors.white),
+                              ),
+                              Text(
+                                'USA : Virginia, USA',
+                                style: mainStyle(
+                                    fontSize: 16, color: Colors.grey),
+                              ),
+                              Text(
+                                'UK : London, WC1',
+                                style: mainStyle(
+                                    fontSize: 16, color: Colors.grey),
+                              ),
+                              Text(
+                                'BD : Kalabagan, Dhaka',
                                 style: mainStyle(
                                     fontSize: 16, color: Colors.grey),
                               ),
