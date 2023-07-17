@@ -26,7 +26,8 @@ class SkillPercentage extends StatelessWidget {
               SkillWidget(percentDeci: .8, percentText: '80',skill: 'Python',),
               SkillWidget(percentDeci: .85, percentText: '85',skill: 'Wordpress',),
               SkillWidget(percentDeci: .7, percentText: '70',skill: 'CI/CD',),
-              SkillWidget(percentDeci: .7, percentText: '70',skill: 'Github Actions',),
+              SkillWidget(percentDeci: .75, percentText: '75',skill: 'Github Actions',),
+              SkillWidget(percentDeci: .2, percentText: '20',skill: 'Spring Boot',),
             ],
           )
         ],

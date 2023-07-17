@@ -16,7 +16,7 @@ class Experience extends StatelessWidget {
         children: [
           Expanded(
               child: Container(
-                height: 500,
+                height: 700,
                 color: mainColor,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 200.0),
@@ -99,7 +99,7 @@ class Experience extends StatelessWidget {
               )),
           Expanded(
               child: Container(
-                height: 500,
+                height: 700,
                 decoration: const BoxDecoration(
                     color: mainColor,
                     image: DecorationImage(

@@ -99,7 +99,7 @@ class _ProjectsState extends State<Projects> {
                       ),
                       ProjectItems(
                         description: 'SaleeBee is a employment management system',
-                        image: 'asset/images/salebee.JPG',
+                        image: 'asset/images/salebee.jpg',
                         projectName: 'SaleBee',
                         myContribution: 'In the app I have made all the complicated User Interfaces(UI). '
                             'There were about 70+ UI screen in the app',
@@ -113,7 +113,7 @@ class _ProjectsState extends State<Projects> {
                             'Hishabee Business Manager Provide user to make their own native e-commerce mobile application '
                             'within a click. Just in 2 clicks customer will have their own application demo apk in their email and after just a few '
                             'subscription fee for playstore, user can have their own mobile app in PlayStore',
-                        image: 'asset/images/hishabee_app_builder.JPG',
+                        image: 'asset/images/hishabee_app_builder.jpg',
                         projectName: 'Hishabee App Builder',
                         myContribution: 'This is a Flutter Web Application, with full e-commerce functionality and '
                             'automated app build functionality. Whole web application is made with flutter, integrated REST API '

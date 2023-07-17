@@ -20,7 +20,7 @@ class AboutMe extends StatelessWidget {
                 curve: Curves.easeIn,
                 duration: const Duration(milliseconds: 500),
                 child: Container(
-                  height: 500,
+                  height: 700,
                   decoration: const BoxDecoration(
                       color: mainColor,
                       image: DecorationImage(
@@ -48,24 +48,27 @@ class AboutMe extends StatelessWidget {
                 child: Stack(
                   children: [
                     Container(
-                      height: 500,
+                      height: 700,
                       color: mainColor,
                       child: Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Center(
-                          child: Text(
-                            '''
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                                     nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-                                     reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-                                     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-                                     culpa qui officia deserunt mollit anim id est laborum.
-                                    ''',
-                            textAlign: TextAlign.center,
-                            style: mainStyle(
-                                fontSize: 18, color: Colors.white),
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 35.0),
+                            child: Text(
+                              '''
+                              I'm Md. Samin Yeaser, a BRAC University graduate with a degree in computer science and engineering. I've been actively working in this industry since 2019 since I have a passion for Flutter development, earning expertise through a variety of projects at Hishabee Technologies, UMR laboratories, and foodeva. My interest in machine learning and artificial intelligence was further stoked during my final year when I decided to write my thesis on the topic of Detecting Social Media Racism and Bullying Using Natural Language Processing.
+                              
+                              I have used artificial intelligence APIs throughout my career while working on projects at foodeva. I always aim to further my expertise, thus I spend my free time studying various technologies with a current emphasis on Springboot. In my spare time, I also like to watch movies and television shows. I spend a lot of time playing PC games like Valorant and mobile games like Mobile Legend Bang Bang to break up the monotony. My gaming alias is defenderCharli.
+                              
+                              I have a strong desire to travel, despite having only seen a few places thus far. I have traveled to CoxsBazar, Khulna, Khoiicahora Falls, Boalia Falls, and Ruposhi Falls within my own nation. I've also got the chance to visit Kolkata overseas.
+                              
+                              My dedication, commitment, and love for my work are my professional assets. I am a quick learner, constantly looking for methods to get better, and I totally dedicate myself to the success of the business and the products I work on.
+                              ''',
+                              textAlign: TextAlign.center,
+                              style: mainStyle(
+                                  fontSize: 18, color: Colors.white),
+                            ),
                           ),
                         ),
                       ),
